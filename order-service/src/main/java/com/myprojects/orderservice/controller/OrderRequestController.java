@@ -1,11 +1,14 @@
 package com.myprojects.orderservice.controller;
 
+import com.myprojects.orderservice.clientServices.CustomerClientService;
+import com.myprojects.orderservice.clientServices.ProductClientService;
 import com.myprojects.orderservice.domain.CustomerDomain;
 import com.myprojects.orderservice.domain.OrderDomain;
 import com.myprojects.orderservice.domain.ProductDomain;
 import com.myprojects.orderservice.model.Customer;
 import com.myprojects.orderservice.model.Order;
 import com.myprojects.orderservice.model.Product;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +27,9 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderRequestController {
     @Autowired
-    private RestTemplate restTemplate;
+    CustomerClientService customerClientService;
+    @Autowired
+    ProductClientService productClientService;
     @Autowired
     private WebClient.Builder webClientBuilder;
 
@@ -32,16 +37,16 @@ public class OrderRequestController {
     public OrderDomain getOrders(@PathVariable long userId) {
         OrderDomain orderDomain = new OrderDomain();
         List<Order> orderList = new ArrayList();
-        CustomerDomain customers = restTemplate.getForObject("http://CUSTOMER-SERVICE/customer/1", CustomerDomain.class);
-        ProductDomain products = restTemplate.getForObject("http://PRODUCT-SERVICE/product/1", ProductDomain.class);
-        orderList.add(new Order(1, customers.getCustomerList().get(0), products.getProductList().get(0), 5));
+        CustomerDomain customers = customerClientService.getCustomers(1);
+        ProductDomain products = productClientService.getProducts(1);
+        orderList.add(new Order(1, customers, products, 5));
         orderDomain.setStatus("Success Message From Discovery Service");
         orderDomain.setOrderList(orderList);
         return orderDomain;
     }
 
 
-//Using webclient for test
+    //Using webclient for test
 //    @GetMapping("/{userId}")
 //    public List<Order> getOrders(@PathVariable long userId) {
 //
@@ -59,4 +64,5 @@ public class OrderRequestController {
 //        orderList.add(new Order(1, customerDomain.getCustomerList().get(0), productDomain.getProductList().get(0), 5));
 //        return orderList;
 //    }
+
 }
