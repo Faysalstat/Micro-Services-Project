@@ -11,7 +11,7 @@
 	<groupId>com.myprojects</groupId>
 	<artifactId>order-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>order-service</name>
+	<name>order-service-resilience4j</name>
 	<description>Demo project for Spring Boot micro service</description>
 	<properties>
 		<java.version>11</java.version>
