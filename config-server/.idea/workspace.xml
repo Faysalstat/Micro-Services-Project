@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0817564f-1539-4ec8-9fbb-741374dfd551" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service-resilience4j/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service-resilience4j/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service-resilience4j/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service-resilience4j/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service-resilience4j/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="0817564f-1539-4ec8-9fbb-741374dfd551" name="Default Changelist" comment="propert added">
+      <change afterPath="$PROJECT_DIR$/../order-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +68,14 @@
       <option name="presentableId" value="Default" />
       <updated>1629196405756</updated>
     </task>
+    <task id="LOCAL-00001" summary="propert added">
+      <created>1629227431679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629227431679</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,5 +89,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="propert added" />
+    <option name="LAST_COMMIT_MESSAGE" value="propert added" />
   </component>
 </project>
