@@ -14,7 +14,8 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     @GetMapping("/{productId}")
-    public ProductDomain getProduct(@PathVariable long productId) {
+    public ProductDomain getProduct(@PathVariable long productId) throws InterruptedException {
+        Thread.sleep(10000);
         List<Product> productList = new ArrayList();
         ProductDomain productDomain = new ProductDomain();
         productList.add(new Product(1, "Coca Cola", 200.00));
