@@ -14,13 +14,13 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     @GetMapping("/{productId}")
-    public ProductDomain getProduct(@PathVariable long productId) throws InterruptedException {
-        Thread.sleep(10000);
+    public ProductDomain getProduct(@PathVariable long productId) throws RuntimeException {
+        System.out.println("Hits : "+System.currentTimeMillis());
         List<Product> productList = new ArrayList();
         ProductDomain productDomain = new ProductDomain();
         productList.add(new Product(1, "Coca Cola", 200.00));
         productDomain.setStatus("Success Message From Eureka");
         productDomain.setProductList(productList);
-        return productDomain;
+        throw new RuntimeException("BAM !  " +System.currentTimeMillis());
     }
 }

@@ -57,5 +57,12 @@ resilience4j.retry:
   instances:
     productBackend:
       baseConfig: default
-    backendB:
+
+
+resilience4j.bulkhead:
+  configs:
+    default:
+      maxConcurrentCalls: 100
+  instances:
+    productBackend:
       baseConfig: default

@@ -41,6 +41,18 @@ public class OrderRequestController {
         orderDomain.setOrderList(orderList);
         return orderDomain;
     }
+    @GetMapping("/retry/{userId}")
+    public OrderDomain getOrdersRetry(@PathVariable long userId){
+        System.out.println(this.testText);
+        OrderDomain orderDomain = new OrderDomain();
+        List<Order> orderList = new ArrayList();
+        CustomerDomain customers = customerClientService.getCustomers(userId);
+        ProductDomain products = productClientService.getProductsRetry(1);
+        orderList.add(new Order(1, customers, products, 5));
+        orderDomain.setStatus("Success Message From Discovery Service");
+        orderDomain.setOrderList(orderList);
+        return orderDomain;
+    }
 
 
     //Using webclient for test
