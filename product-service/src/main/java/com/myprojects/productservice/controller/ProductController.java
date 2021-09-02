@@ -21,6 +21,7 @@ public class ProductController {
         productList.add(new Product(1, "Coca Cola", 200.00));
         productDomain.setStatus("Success Message From Eureka");
         productDomain.setProductList(productList);
-        throw new RuntimeException("BAM !  " +System.currentTimeMillis());
+        return productDomain;
+//        throw new RuntimeException("BAM !  " +System.currentTimeMillis());
     }
 }

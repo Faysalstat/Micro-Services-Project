@@ -28,6 +28,6 @@ public class ProductClientServiceImp implements ProductClientService {
     public ProductDomain getProductFallback(@PathVariable long userId) {
         List<Product> productList = new ArrayList();
         productList.add(new Product());
-        return new ProductDomain("Product Not Found",productList);
+        return new ProductDomain("Message from order service 1 : Product Not Found",productList);
     }
 }
