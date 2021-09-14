@@ -1,0 +1,16 @@
+server:
+  port: 8000
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway-service
+
+
+#hystrix:
+#  command:
+#    fallbackcmd:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
