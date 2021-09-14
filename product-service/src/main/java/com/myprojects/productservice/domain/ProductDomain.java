@@ -1,12 +1,13 @@
 package com.myprojects.productservice.domain;
 
 import com.myprojects.productservice.model.Product;
+import com.myprojects.productservice.model.ProductEntity;
 
 import java.util.List;
 
 public class ProductDomain {
     private String status;
-    private List<Product> productList;
+    private List<ProductEntity> productList;
 
     public String getStatus() {
         return status;
@@ -16,11 +17,11 @@ public class ProductDomain {
         this.status = status;
     }
 
-    public List<Product> getProductList() {
+    public List<ProductEntity> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Product> productList) {
+    public void setProductList(List<ProductEntity> productList) {
         this.productList = productList;
     }
 }

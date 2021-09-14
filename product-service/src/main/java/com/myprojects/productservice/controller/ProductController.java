@@ -2,10 +2,9 @@ package com.myprojects.productservice.controller;
 
 import com.myprojects.productservice.domain.ProductDomain;
 import com.myprojects.productservice.model.Product;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.myprojects.productservice.model.ProductEntity;
+import com.myprojects.productservice.service.ProductService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +12,31 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
-    @GetMapping("/{productId}")
-    public ProductDomain getProduct(@PathVariable long productId) throws RuntimeException {
+    private ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping("/all")
+    @CrossOrigin
+    public ProductDomain getAllProduct() throws RuntimeException {
         System.out.println("Hits : "+System.currentTimeMillis());
-        List<Product> productList = new ArrayList();
+        List<ProductEntity> productList = productService.getAllProducts();
         ProductDomain productDomain = new ProductDomain();
-        productList.add(new Product(1, "Coca Cola", 200.00));
         productDomain.setStatus("Success Message From Eureka");
         productDomain.setProductList(productList);
         return productDomain;
-//        throw new RuntimeException("BAM !  " +System.currentTimeMillis());
     }
+//    @GetMapping("/{productId}")
+//    public ProductDomain getProductById(@PathVariable long productId) throws RuntimeException {
+//        System.out.println("Hits : "+System.currentTimeMillis());
+//        List<Product> productList = new ArrayList();
+//        ProductDomain productDomain = new ProductDomain();
+//        productList.add(new Product(1, "Coca Cola", 200.00));
+//        productDomain.setStatus("Success Message From Eureka");
+//        productDomain.setProductList(productList);
+//        return productDomain;
+////        throw new RuntimeException("BAM !  " +System.currentTimeMillis());
+//    }
 }

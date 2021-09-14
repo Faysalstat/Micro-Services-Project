@@ -34,7 +34,7 @@ public class OrderRequestController {
     private WebClient.Builder webClientBuilder;
 
     @GetMapping("/{userId}")
-    public OrderDomain getOrders(@PathVariable long userId) {
+    public OrderDomain getOrders(@PathVariable long userId) throws RuntimeException  {
         OrderDomain orderDomain = new OrderDomain();
         List<Order> orderList = new ArrayList();
         CustomerDomain customers = customerClientService.getCustomers(1);
@@ -42,7 +42,8 @@ public class OrderRequestController {
         orderList.add(new Order(1, customers, products, 5));
         orderDomain.setStatus("Success Message From Discovery Service");
         orderDomain.setOrderList(orderList);
-        return orderDomain;
+        throw  new RuntimeException("Order Service Down Bro!");
+//        return orderDomain;
     }
 
 
